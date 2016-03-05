@@ -1,0 +1,25 @@
+#logo {
+	width: 272px;
+	padding-top: 185px;
+	margin: auto;
+}
+
+#search_box {
+	width: 575px;
+	height: 40px;
+	border: 1px solid lightgray;
+	margin: 20px auto;
+}
+
+input[type="text"] {
+	width: 475px;
+	height: 20px;
+	margin-top: 10px;
+	margin-left: 10px;
+	border: none;
+	font-size: 16px;
+}
+
+input:focus {
+	outline: none;
+}
