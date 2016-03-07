@@ -23,3 +23,18 @@ input[type="text"] {
 input:focus {
 	outline: none;
 }
+
+#search_btns {
+	width: 400px;
+	margin: 30px auto;
+	text-align: center;
+}
+
+#search_btns button {
+	height: 34px;
+	margin: 3px;
+	font-weight: bold;
+    color: gray;
+    background: #f1f1f1;
+    border: none;
+}
