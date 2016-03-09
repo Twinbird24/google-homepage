@@ -1,3 +1,8 @@
+body, html {
+	margin: 0;
+	height: 100%;
+}
+
 #logo {
 	width: 272px;
 	padding-top: 185px;
@@ -37,4 +42,17 @@ input:focus {
     color: gray;
     background: #f1f1f1;
     border: none;
+}
+
+#f_bar {
+	height: 40px;
+	width: 100%;
+	background-color: #f1f1f1;
+	position: fixed;
+	bottom: 0;
+	border-top: 1px solid #e0e0e0;
+}
+
+#f_bar span {
+	height: 40px;
 }
