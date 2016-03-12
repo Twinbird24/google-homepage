@@ -42,10 +42,10 @@ input:focus {
     color: gray;
     background: #f1f1f1;
     border: none;
+    padding: 0 15px;
 }
 
 #f_bar {
-	height: 40px;
 	width: 100%;
 	background-color: #f1f1f1;
 	position: fixed;
@@ -53,6 +53,8 @@ input:focus {
 	border-top: 1px solid #e0e0e0;
 }
 
-#f_bar span {
-	height: 40px;
+#f_bar span a{
+	display: inline-block;
+	line-height: 40px;
+	padding-left: 27px;
 }
