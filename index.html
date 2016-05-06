@@ -7,6 +7,21 @@
 </head>
 <body>
 
+	<div id="t_bar">
+		<span>
+			<span>Attila</span>
+			<a href="https://mail.google.com">Gmail</a>
+			<a href="https://images.google.com/">Images</a>
+			<a href="">
+				<div id="t_grid">
+					<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+				</div>
+			</a>
+			<a href=""><img src="bell.png" alt="Google notifications"></a>
+			<a href="">Image</a>
+		</span>
+	</div>
+
 	<div id="logo">
 		<img src="google_logo.png" alt="Google Logo">
 	</div>
@@ -14,28 +29,47 @@
 	<div id="search_box">
 		<form action="">
 			<input type="text">
+			<img src="google_mic.png">
 		</form>
+		<div id="tooltip">Search by voice <div id="pointer"></div></div>
 	</div>
 
 	<div id="search_btns">
 		<button>Google Search</button>
-		<button>I'm Feeling Lucky!</button>
+		<button>
+			<ul>
+				<li>I'm Feeling Stellar</li>
+				<li>I'm Feeling Artistic</li>
+				<li>I'm Feeling Wonderful</li>
+				<li>I'm Feeling Curious</li>
+				<li>I'm Feeling Hungry</li>
+				<li>I'm Feeling Lucky</li>
+				<li>I'm Feeling Doodley</li>
+				<li>I'm Feeling Generous</li>
+				<li>I'm Feeling Trendy</li>
+				<li>I'm Feeling Puzzled</li>
+				<li>I'm Feeling Playful</li>
+			</ul>
+		</button>
 	</div>
 
 	<div id="f_bar">
 
 		<span>
-			<a href="#">Advertising</a>
-			<a href="#">Business</a>
-			<a href="#">About</a>
+			<a href="https://www.google.com/intl/en/ads/?fg=1">Advertising</a>
+			<a href="https://www.google.com/services/?fg=1#?modal_active=none">Business</a>
+			<a href="https://www.google.com/intl/en/about/">About</a>
 		</span>
 
 		<span>
-			<a href="#"></a>
-			<a href="#"></a>
-			<a href="#"></a>
+			<a href="https://www.google.com/preferences?hl=en">Settings</a>
+			<a href="https://www.google.com/intl/en/policies/terms/?fg=1">Terms</a>
+			<a href="https://www.google.com/intl/en/policies/privacy/?fg=1">Privacy</a>
 		</span>
 	</div>
 	
+<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+<script src="jquery.speechtotext.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

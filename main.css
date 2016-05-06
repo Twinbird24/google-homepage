@@ -1,6 +1,12 @@
 body, html {
 	margin: 0;
 	height: 100%;
+	box-sizing: border-box;
+	font-family: arial;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 #logo {
@@ -10,6 +16,7 @@ body, html {
 }
 
 #search_box {
+	position: relative;
 	width: 575px;
 	height: 40px;
 	border: 1px solid lightgray;
@@ -32,17 +39,83 @@ input:focus {
 #search_btns {
 	width: 400px;
 	margin: 30px auto;
-	text-align: center;
+	padding-left: 60px;
+}
+
+#search_btns button:nth-child(2) {
+	width: 144px;
+}
+
+#search_btns button:nth-child(1) {
+	bottom: 12px;
 }
 
 #search_btns button {
+	position: relative;
 	height: 34px;
 	margin: 3px;
 	font-weight: bold;
     color: gray;
     background: #f1f1f1;
-    border: none;
+    border: 1px solid #f1f1f1;
+    border-radius: 2px;
     padding: 0 15px;
+    overflow: hidden;
+}
+
+#search_btns button:hover {
+	color: black;
+	border: 1px solid #bdbdbd;
+	box-shadow: 0px 0.5px 0px 0px #d3d3d3;
+}
+#search_btns button:active {
+	border: 1px solid #7f7fff;
+}
+
+#search_btns button:focus {
+	outline: 0;
+}
+
+#search_btns button ul li {
+	list-style-type: none;
+	padding: 5px 0;
+	text-align: left;
+}
+
+#search_btns button ul {
+	padding-left: 0;
+	position: absolute;
+	bottom: -135px;
+	width: 144px;
+}
+
+
+#tooltip {
+	visibility: hidden;
+	color: white;
+	background-color: #2a2a2a;
+	font-size: 11px;
+	font-weight: bold;
+	position: relative;
+	width: 110px;
+	left: 497px;
+	top: 12px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid white;
+	box-shadow: 0px 0px 3px 1px #d3d3d3;
+}
+
+#pointer {
+	width: 9px;
+    height: 9px;
+    background: #2a2a2a;
+    position: absolute;
+    left: 50px;
+    bottom: 22px;
+    transform: rotate(45deg);
+
 }
 
 #f_bar {
@@ -51,10 +124,105 @@ input:focus {
 	position: fixed;
 	bottom: 0;
 	border-top: 1px solid #e0e0e0;
+	font-size: 13px;
 }
 
-#f_bar span a{
+#f_bar span a {
 	display: inline-block;
 	line-height: 40px;
 	padding-left: 27px;
+	color: #696969;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#f_bar span:nth-child(2) a {
+	float: right;
+}
+
+#f_bar span:nth-child(2) a:nth-child(1) {
+	padding-right: 27px;
+}
+
+#search_box form img {
+	height: 30px;
+	float: right;
+	margin: 5px;
+	cursor: pointer;
+}
+
+#t_bar {
+	float: right;
+	margin-top: 20px;
+	font-size: 13px;
+}
+
+#t_bar span a {
+	margin-right: 15px;
+	color: #3f3f3f;
+}
+
+#t_bar span a img {
+	height: 20px;
+	width: 20px;
+	vertical-align: middle;
+	background-color: #696969;
+	border-radius: 50%;
+}
+#t_bar span a img:hover {
+	background-color: black;
+	cursor: default;
+}
+
+#t_bar span a:nth-child(6) {
+	margin-right: 30px;
+}
+
+#t_bar span a:nth-child(5) {
+	cursor: context-menu;
+}
+
+#t_bar span span {
+	cursor: text;
+	text-decoration: none;
+	color: grey;
+	padding-right: 15px;
+}
+
+#t_bar span {
+	cursor: context-menu;
+}
+
+#t_grid {
+	display: inline-block;
+	width: 18px;
+	vertical-align: middle;
+}
+
+#t_grid div {
+	width: 4px;
+	height: 4px;
+	background-color: #696969;
+	display: inline-block;
+	float: left;
+	margin: 1px;
+}
+
+#t_bar span a:nth-child(4) {
+	text-decoration: none;
+	cursor: context-menu;
+}
+
+#voice_div {
+	background-color: white;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	bottom: 0px;
 }
