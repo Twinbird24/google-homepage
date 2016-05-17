@@ -134,10 +134,12 @@ $(function() {
             location = 'http://www.google.com/search?q=' + encodeURIComponent($('#search_box form input').val());  
         }
     });
-    // if(event.keyCode == 13)
-    // {
-    //     location = 'http://www.google.com/search?q=' + encodeURIComponent($('#search_box form input').val());
-    // }
+
+    // Sending the input of the Google search field to a random website (i.e. the 'I'm feeling lucky' search).
+    $('#search_btns button:nth-child(2)').click(function(){
+        // For the random search, this should be the URL: http://www.google.com/search?q=%s&btnI but with '%s' replaced with whatever you want.
+        location = 'http://www.google.com/search?q=' + encodeURIComponent($('#search_box form input').val()) + '&btnI';
+    });
 
     // Speech recognition, on click of the mic button.
     function speech_func() {
