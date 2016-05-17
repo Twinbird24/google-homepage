@@ -1,18 +1,18 @@
 $(function() {
 
-	// DOM is loaded, let's run the code
+	// DOM is loaded, let's run the code.
     console.log('ready!');
 
-    // when hovered over the grid, change it to black, when hovered out,
-    // change it back to grey
+    // When hovered over the grid, change it to black, when hovered out,
+    // change it back to grey.
     $('#t_grid').hover(function(){
     	$('#t_grid div').css('background-color', 'black');
     }, function(){
     	$('#t_grid div').css('background-color', '#696969');
 	});
 
-    // when hovered over the search box, change it's border, and when
-    // hovered out, change it back to default - but only if input is not focused
+    // When hovered over the search box, change it's border, and when
+    // hovered out, change it back to default - but only if input is not focused.
     $('#search_box').hover(function(){
     	if ($('#search_box input').is(':focus') == false) {
     		$('#search_box').css({'border' : '1px solid #bdbdbd', 'border-top' : '1px solid #a8a8a8'});
@@ -23,46 +23,48 @@ $(function() {
     	}
 	});
 
-    // focus onto the search input when the entire div
-    // is clicked
+    // Focus onto the search input when the entire div
+    // is clicked.
 	$('#search_box').click(function() {
 		console.log('search box clicked')
 	    $('#search_box input').focus()
 	});
 
-	// change the search box border when it's focused
+	// Change the search box border when it's focused.
 	$('#search_box input').focus(function() {
 	    $('#search_box').css('border','1px solid #9999ff');
 	}).blur(function() {
 	    $('#search_box').css('border','1px solid lightgray'); // setting it back to the default
 	});
 
-    // reveal the tooltip on mic image hover
+    // Reveal the tooltip on mic image hover.
     $('#search_box form img').hover(function() {
         console.log('mic hover');
-        // show the tooltip after 150ms of hover
+        // Show the tooltip after 150ms of hover.
         setTimeout(function() {
             console.log('setTimeout function');
             $('#tooltip').css('visibility', 'visible');
         },150);
     }, function() {
         console.log('mic hover out');
-        // hide the tooltip after 150ms of hover
+        // Hide the tooltip after 150ms of hover.
         setTimeout(function() {
             console.log('setTimeout function');
             $('#tooltip').css('visibility', 'hidden');
         },150);
     });
 
-    // open up the search by voice div on mic click
+    // Open up (un-hide) the search by voice div on mic click.
     $('#search_box form img').click(function() {
         console.log('mic click');
-        $('html').append('<div id="voice_div"></div>');
+        $('#voice_div').css('display', 'initial');
+        // Also run the speech reconigiont function (see below).
+        speech_func();
     });
-    // close the search by voice div when clicking on it
+    // Close the search by voice div (hide it) when clicking on it.
     $('html').on('click', '#voice_div', function() {
         console.log('div click');
-        $(this).remove('#voice_div');
+        $(this).css('display', 'none');
     });
 
     // The button spin animation.
@@ -88,7 +90,7 @@ $(function() {
             }
             console.log(pos);
             $('#search_btns button:nth-child(2) ul').animate({'bottom':pos + 'px'}, 300);
-            // change the width of the button to fit the currently selected word
+            // Change the width of the button to fit the currently selected word.
             if (pos === -35 || pos === -110 || pos === -185 || pos === -10 || pos === -60 || pos === -160) {
                 console.log(pos + ' = -35, -110, -185, -10, -60, -160');
                 $('#search_btns button:nth-child(2)').css('width', '149px');
@@ -108,9 +110,26 @@ $(function() {
         console.log('reset spin');
         setTimeout(function() {
             console.log('setTimeout function');
-            $('#search_btns button:nth-child(2) ul').css('bottom', '-135px'); // this is the original position
-            $('#search_btns button:nth-child(2)').css('width', '144px'); // reset the original width of the button
+            $('#search_btns button:nth-child(2) ul').css('bottom', '-135px'); // This is the original position.
+            $('#search_btns button:nth-child(2)').css('width', '144px'); // Reset the original width of the button.
         },200);
     });
 
+    // Speech recognition, on click of the mic button.
+
+    function speech_func() {
+        console.log("start speech capture");
+
+        var recognizer = new webkitSpeechRecognition();
+        recognizer.lang = "en";
+        recognizer.onresult = function(event) {
+            if (event.results.length > 0) {
+                var result = event.results[event.results.length-1];
+                if(result.isFinal) {
+                    console.log(result[0].transcript);
+                }
+            }  
+        };
+        recognizer.start();
+    }
 });
