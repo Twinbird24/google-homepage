@@ -253,13 +253,13 @@ a:hover {
 #voice_input_div div img {
 	position: absolute;
 	z-index: -1;
-	right: 78px;
+	right: 278px;
 	bottom: 226px;
 }
 
 #voice_input_div div div {
 	position: absolute;
-	right: 152px;
+	right: 352px;
 	bottom: 270px;
 }
 

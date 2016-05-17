@@ -116,6 +116,29 @@ $(function() {
         },200);
     });
 
+    // Sending the input of the Google search field to the real Google home page for a query.
+    $('#search_btns button:nth-child(1)').click(function(){
+        location = 'http://www.google.com/search?q=' + encodeURIComponent($('#search_box form input').val());
+    });
+    // Or if the 'enter' button is pressed within the search box, do the same thing as above.
+    $(document).keypress(function(event){
+        // The question mark here(below) is a a ternary if operation, simply put, it is a short, inline if statement.
+        // If the statement before the question mark evaluates to true, then the left-hand side of the colon
+        // is used, otherwise (if it is false) the right-hand side is used. 
+        // In Firefox, you have to use event.which to get the keycode; while IE support both event.keyCode and event.which.
+        var keycode = (event.keyCode ? event.keyCode : event.which); // Assign 'keycode' the value of the currently pressed keyboard button
+        if(keycode == '13'){
+            // A keycode of 13 corresopnd to the 'enter' button.
+            //alert('You pressed a "enter" key in textbox');
+            event.preventDefault(); // Prevents the default behaviour when you press enter in the input field (which just clears it and doesn't re-direct you).
+            location = 'http://www.google.com/search?q=' + encodeURIComponent($('#search_box form input').val());  
+        }
+    });
+    // if(event.keyCode == 13)
+    // {
+    //     location = 'http://www.google.com/search?q=' + encodeURIComponent($('#search_box form input').val());
+    // }
+
     // Speech recognition, on click of the mic button.
     function speech_func() {
         console.log("start speech capture");
@@ -129,8 +152,8 @@ $(function() {
             if (event.results.length > 0) {
                 var result = event.results[event.results.length-1];
                 if(result.isFinal) {
-                    $('#voice_input_div form input').val(result[0].transcript);
-                    console.log(result[0].transcript);
+                    $('#voice_input_div form input').val(result[0].transcript); // Take the caputured voice/text and insert it into the input field.
+                    location = 'http://www.google.com/search?q=' + encodeURIComponent(result[0].transcript);
                 }
             }  
         };
