@@ -129,8 +129,8 @@ $(function() {
             if (event.results.length > 0) {
                 var result = event.results[event.results.length-1];
                 if(result.isFinal) {
-                    console.log(result[0].transcript);
                     $('#voice_input_div form input').val(result[0].transcript);
+                    console.log(result[0].transcript);
                 }
             }  
         };
