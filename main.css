@@ -175,9 +175,20 @@ a:hover {
 	background-color: #696969;
 	border-radius: 50%;
 }
+
+#t_bar span a .my_pic {
+	width: 30px;
+	height: 30px;
+	background: none;
+}
+
 #t_bar span a img:hover {
 	background-color: black;
 	cursor: default;
+}
+
+#t_bar span a .my_pic:hover {
+	background: none;
 }
 
 #t_bar span a:nth-child(6) {
