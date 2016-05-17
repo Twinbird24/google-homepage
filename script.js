@@ -65,6 +65,7 @@ $(function() {
     $('html').on('click', '#voice_div', function() {
         console.log('div click');
         $(this).css('display', 'none');
+        $('#voice_input_div form input').val(''); // Empty the input field.
     });
 
     // The button spin animation.
@@ -129,7 +130,7 @@ $(function() {
                 var result = event.results[event.results.length-1];
                 if(result.isFinal) {
                     console.log(result[0].transcript);
-                    $('#voice_input_div form input').val("fgg");
+                    $('#voice_input_div form input').val(result[0].transcript);
                 }
             }  
         };
