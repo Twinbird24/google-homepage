@@ -116,10 +116,12 @@ $(function() {
     });
 
     // Speech recognition, on click of the mic button.
-
     function speech_func() {
         console.log("start speech capture");
 
+        // The below code will request permission from user to allow taking input through microphone access and then
+        // will capture the sound you talk, send it to external service for recognition, and get the result back
+        // inside ‘onresult’ event handler.
         var recognizer = new webkitSpeechRecognition();
         recognizer.lang = "en";
         recognizer.onresult = function(event) {
@@ -130,6 +132,9 @@ $(function() {
                 }
             }  
         };
-        recognizer.start();
+
+        $("#voice_input_div div").click(function() {
+            recognizer.start();
+        });
     }
 });
