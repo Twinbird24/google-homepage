@@ -1,3 +1,4 @@
+/* CSS reset and declaration of the font to be used */
 body, html {
 	margin: 0;
 	height: 100%;
@@ -5,16 +6,19 @@ body, html {
 	font-family: arial;
 }
 
+/* Making sure border-box box-sizing is applied to every element */
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
+/* Styling for the Google logo div */
 #logo {
 	width: 272px;
 	padding-top: 185px;
 	margin: auto;
 }
 
+/* The div that hold the input field and mic logo */
 #search_box {
 	position: relative;
 	width: 575px;
@@ -23,6 +27,14 @@ body, html {
 	margin: 20px auto;
 }
 
+#search_box form img {
+	height: 30px;
+	float: right;
+	margin: 5px;
+	cursor: pointer;
+}
+
+/* Styling for the search box input field */
 input[type="text"] {
 	width: 475px;
 	height: 20px;
@@ -36,6 +48,7 @@ input:focus {
 	outline: none;
 }
 
+/* Styling for the search buttons */
 #search_btns {
 	width: 400px;
 	margin: 30px auto;
@@ -89,7 +102,7 @@ input:focus {
 	width: 144px;
 }
 
-
+/* The box that appears when you hover over the mic */
 #tooltip {
 	visibility: hidden;
 	color: white;
@@ -107,6 +120,7 @@ input:focus {
 	box-shadow: 0px 0px 3px 1px #d3d3d3;
 }
 
+/* The little arrow the comes out from the tooltip */
 #pointer {
 	width: 9px;
     height: 9px;
@@ -118,6 +132,7 @@ input:focus {
 
 }
 
+/* Styling for the footer */
 #f_bar {
 	width: 100%;
 	background-color: #f1f1f1;
@@ -150,13 +165,7 @@ a:hover {
 	padding-right: 27px;
 }
 
-#search_box form img {
-	height: 30px;
-	float: right;
-	margin: 5px;
-	cursor: pointer;
-}
-
+/* Styling for the 'header' or top bar */
 #t_bar {
 	float: right;
 	margin-top: 20px;
@@ -230,6 +239,7 @@ a:hover {
 	cursor: context-menu;
 }
 
+/* Styling for the voice input div (appears on mic click, for voice search) */
 #voice_div {
 	display: none;
 	background-color: white;
@@ -274,6 +284,7 @@ a:hover {
 	bottom: 270px;
 }
 
+/* This allows us to change the color of the placeholder text in the input field */
 ::-webkit-input-placeholder {
    color: #7e7e7e;
 }
