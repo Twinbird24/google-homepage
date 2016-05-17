@@ -129,12 +129,11 @@ $(function() {
                 var result = event.results[event.results.length-1];
                 if(result.isFinal) {
                     console.log(result[0].transcript);
+                    $('#voice_input_div form input').val("fgg");
                 }
             }  
         };
 
-        $("#voice_input_div div").click(function() {
-            recognizer.start();
-        });
+        recognizer.start(); // Start catpuring voice input.
     }
 });
