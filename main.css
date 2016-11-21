@@ -297,3 +297,10 @@ a:hover {
 :-ms-input-placeholder {  
    color: #7e7e7e;  
 }
+
+/* positioning the container for the mic so it's aligned properly on the page */
+#mic-div-container {
+	position: relative;
+	bottom: -320px;
+	right: -400px;
+}
